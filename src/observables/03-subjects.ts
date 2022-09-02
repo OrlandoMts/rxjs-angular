@@ -22,7 +22,7 @@ const intervalo$ = new Observable<number>( subs => {
 /**
  * 1-Casteo multiple
  * 2.-Tambien es un observer
- * 3- Puede manjera el NExt, error y complete
+ * 3- Puede manejar el NExt, error y complete
  */
 const subject$ = new Subject<number>();
 const subscription = intervalo$.subscribe(subject$); // la emision del Observable(intervalo$) es emitida por el Observer(Subject) a sus Subscriptores

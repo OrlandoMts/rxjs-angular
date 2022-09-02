@@ -2,7 +2,6 @@
 // Puedo hacer la funcion de setTimeout y setInterval
 
 import { asyncScheduler } from "rxjs";
-import { AsyncScheduler } from "rxjs/internal/scheduler/AsyncScheduler";
 
 const saludar = () => console.log('hoola');
 const saludar2 = nombre => console.log(`hola ${nombre}`);
@@ -28,4 +27,4 @@ const subs = asyncScheduler.schedule(function(state){
 
 setTimeout(() =>{
     subs.unsubscribe()
-}, 6000); //Solo imprimirá dos porque empeoz en 4s
+}, 6000); //Solo imprimirá dos porque empezo en 4s

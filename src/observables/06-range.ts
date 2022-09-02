@@ -1,6 +1,6 @@
 import { range, of } from "rxjs";
 
-const src0$ = of(1,2,3,4,5,6,7,8,9,); 
+const src0$ = of(1,2,3,4,5,6,7,8,9,10); 
 /**
  * El range emite valores, 
  * el primer valor declarado es de donde va a inicar la emision (1), por defecto es 0
