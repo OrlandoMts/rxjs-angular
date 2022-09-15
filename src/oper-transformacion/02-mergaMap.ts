@@ -1,4 +1,5 @@
-import { fromEvent, interval, map, mergeMap, of, range, take, takeUntil, tap } from "rxjs";
+import { fromEvent, interval, map, mergeMap, of, range, take, takeUntil, concatMap, delay } from "rxjs";
+import { ajax } from "rxjs/ajax";
 
 const letras$ = of('a','b','c');
 
@@ -21,4 +22,29 @@ mouseDown$.pipe(
     mergeMap( () => interval$.pipe(
         takeUntil(mouseUp$)
     ))
+).subscribe(console.log)
+
+
+/**
+ * Si no me interesa el orden mergeMap me puede servir,
+ * con concatMap puedo ordenar
+ */
+
+
+// Ejemplo *****
+const source$ = of(2000,1000,4000);
+
+const subMergeMap = source$.pipe(
+    mergeMap( val => of(`valor: ${val}`).pipe(delay(val)) )
+).subscribe(console.log)
+
+// Ejemplo ********
+
+const sourcegit$ = of(
+    ajax.getJSON('https://api.github.com/users/orlandomts'),
+    ajax.getJSON('https://api.github.com/users/ashley'),
+)
+
+const subMergeMapGit = sourcegit$.pipe(
+    mergeMap( val => val )
 ).subscribe(console.log)
