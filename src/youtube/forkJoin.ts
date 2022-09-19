@@ -2,6 +2,11 @@
  * Operador de combinacion
  */
 
+/**
+ * Recibe observables y tienen que ser finitos; sino el forkJoin no emitirá nada.
+ * Emite el ultimo valor de cada observable en un arreglo (pero puodria ser un objeto) que es un Observable
+ */
+
  import { forkJoin } from "rxjs";
  import { ajax } from "rxjs/ajax";
  
